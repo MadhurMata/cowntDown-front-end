@@ -9,16 +9,28 @@ export default class App extends Component {
   state = {
     name: "",
     deadline: '2019-08-12',
-    counter: {}
+    counter: {},
+    names: [],
   };
 
   componentDidMount(){
+    this.getNames();
     setInterval(() => {
       const counter = this.getTimeRemaining(this.state.deadline)
         this.setState({counter})    
     }, 1000);
   }
 
+  getNames = () => {
+    routeService.getName()
+      .then(data => {
+        this.setState({
+          names: data,
+        })
+      }).catch(error => {
+        console.log("error", error);
+      });
+  };
 
   // didcomponentupdate(){
     
@@ -36,7 +48,6 @@ export default class App extends Component {
   handleFormSubmit = e => {
     e.preventDefault();
     const { name } = this.state
-    console.log('in app', name)
     routeService.create(name)
       .then(data => {
         return data;
@@ -85,7 +96,7 @@ getTimeRemaining = (endTime) => {
 
 
   render() {
-    const { name, deadline, counter } = this.state;
+    const { name, deadline, counter, names } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -107,6 +118,9 @@ getTimeRemaining = (endTime) => {
         <main>
           <div className="counter">
             <p>{counter.days} Days {counter.hours} h {counter.minutes} min {counter.seconds} sec</p>
+          </div>
+          <div class="names-list">
+            {names.map((name)=>{return <p class="element">{name.name}</p> })}
           </div>
         </main>
       </div>

@@ -35,8 +35,12 @@ p {
 
 
 .App {
+  display: flex;
   text-align: center;
-}
+  justify-content: center;
+  height: 100vh;
+  vertical-align: center;
+  flex-direction: column;}
 
 
 .App-header {
@@ -45,12 +49,49 @@ p {
 
 main {
   display: flex;
+  justify-content: center;
+  flex-direction: column;
+
 }
 
 .counter {
-  justify-content: center;
   font-size: 1.5rem;
   box-shadow: 5px 5px 0 #fff, 10px 10px 0 rgba(0,0,0,0.2);
 }
+
+.element {
+  height: 50px;
+  width: 50px;
+  background-color: red;
+  animation: 
+    pulse 3s ease infinite alternate, 
+    nudge 5s linear infinite alternate;
+  border-radius: 100%;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    background-color: red;
+  }
+  50% {
+    background-color: orange;
+  }
+}
+
+@keyframes nudge {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  
+  50% {
+    transform: translate(330px, 0);
+  }
+  
+  80% {
+    transform: translate(150px, 0);
+  }
+}
+
+
 
 

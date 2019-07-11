@@ -8,6 +8,11 @@ class RoutesService {
     })
   }
 
+  getName()  {
+    return this.user.get('/user')
+    .then(({ data }) => data);
+  }
+
   create(name) {
     console.log('routes-service', name)
     return this.user.post('/user/create', { name } )
