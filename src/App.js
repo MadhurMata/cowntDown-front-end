@@ -8,7 +8,7 @@ import routeService from "./routes-service";
 export default class App extends Component {
   state = {
     name: "",
-    deadline: '2019-08-12',
+    deadline: '2019-08-13',
     counter: {},
     names: [],
     random: Math.floor(Math.random()*100),
@@ -133,7 +133,7 @@ getTimeRemaining = (endTime) => {
   }
 
   render = () => {
-    const { name, counter, names, random } = this.state;
+    const { name, counter, names } = this.state;
     return (
       <div className="App">
         <header className="App-header">
