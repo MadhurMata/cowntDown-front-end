@@ -10,7 +10,7 @@ export default class App extends Component {
     name: "",
     deadline: '2019-08-13',
     counter: {},
-    names: [],
+    names: ['Mad'],
     random: Math.floor(Math.random()*100),
     colors: ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"],
   };
@@ -92,27 +92,11 @@ getTimeRemaining = (endTime) => {
     const oneColor = colors[Math.floor(Math.random()*colors.length)]
 
     const start = Math.floor(Math.random());
-
-    names.map((name, index)=>{
-      if(start === 1){
-        return (
-        <div className="beer rotate"
-        key={index} 
-        ref={this.addSpanRef} 
-        style={{ 
-          color: `${oneColor}`, 
-          position: "absolute", 
-          top:`${Math.floor(Math.random()*100)}vh`, 
-          left:`${Math.floor(Math.random()*100)}vw`, 
-          transform: `translateX(${this.randomNumber()}vw) 
-          translateY(${this.randomNumber()}vh) 
-          rotate(${Math.random()*360}deg)`
-        }} >
-          <p>{name.name}</p>     
-        </div>
-        )   
-      } else {
-        return (
+    if(names.length) {
+      console.log(names)
+      names.map((name, index)=>{
+        if(start === 1){
+          return (
           <div className="beer rotate"
           key={index} 
           ref={this.addSpanRef} 
@@ -121,15 +105,33 @@ getTimeRemaining = (endTime) => {
             position: "absolute", 
             top:`${Math.floor(Math.random()*100)}vh`, 
             left:`${Math.floor(Math.random()*100)}vw`, 
-            transform: `translateY(${this.randomNumber()}vw) 
-            translateX(${this.randomNumber()}vh) 
-            rotate(${Math.random()*-360}deg)`
+            transform: `translateX(${this.randomNumber()}vw) 
+            translateY(${this.randomNumber()}vh) 
+            rotate(${Math.random()*360}deg)`
           }} >
             <p>{name.name}</p>     
           </div>
-          ) 
-      }
-    })
+          )   
+        } else {
+          return (
+            <div className="beer rotate"
+            key={index} 
+            ref={this.addSpanRef} 
+            style={{ 
+              color: `${oneColor}`, 
+              position: "absolute", 
+              top:`${Math.floor(Math.random()*100)}vh`, 
+              left:`${Math.floor(Math.random()*100)}vw`, 
+              transform: `translateY(${this.randomNumber()}vw) 
+              translateX(${this.randomNumber()}vh) 
+              rotate(${Math.random()*-360}deg)`
+            }} >
+              <p>{name.name}</p>     
+            </div>
+            ) 
+        }
+      })
+    }
   }
 
   render = () => {
