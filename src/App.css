@@ -19,18 +19,32 @@ body {
 body {
   color: #111;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 147%;
 }
 
-h1 {}
+h1 {
+  font-size: 10vh;
+}
 
-h2 {}
+h2 {
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+}
+h3 {
+  font-size: 6vw;
+}
 
-h3 {}
 
 p {
-  margin: 0;
+
+  visibility: hidden;
+}
+
+.beer:hover p {
+visibility: visible;
+margin: 0;
+padding: 1rem;
+text-align: center;
 }
 
 
@@ -40,58 +54,48 @@ p {
   justify-content: center;
   height: 100vh;
   vertical-align: center;
-  flex-direction: column;}
-
-
-.App-header {
-
+  flex-direction: column;
 }
 
 main {
   display: flex;
   justify-content: center;
-  flex-direction: column;
-
 }
 
 .counter {
-  font-size: 1.5rem;
-  box-shadow: 5px 5px 0 #fff, 10px 10px 0 rgba(0,0,0,0.2);
+  background-color: rgb(68, 165, 204);
+  font-size: 6vw;
+  font-family: digital-7;
+  border: 3px solid red;
+  height: min-content;
+  z-index: 100;
+
 }
 
-.element {
+.display-letters {
+  font-size: 1rem;
+}
+
+.beer{
+  background: url('beer.svg');
+  background-size: cover;
   height: 50px;
   width: 50px;
-  background-color: red;
-  animation: 
-    pulse 3s ease infinite alternate, 
-    nudge 5s linear infinite alternate;
-  border-radius: 100%;
+  transition-duration: 4s;
+  z-index: 0;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    background-color: red;
-  }
-  50% {
-    background-color: orange;
-  }
+.beer:hover {
+  background: none;
 }
 
-@keyframes nudge {
-  0%, 100% {
-    transform: translate(0, 0);
-  }
-  
-  50% {
-    transform: translate(330px, 0);
-  }
-  
-  80% {
-    transform: translate(150px, 0);
-  }
+.rotate {
+  transform: none !important;
 }
 
+.form {
+  z-index: 100;
+}
 
 
 
