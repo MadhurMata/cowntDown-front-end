@@ -92,9 +92,10 @@ getTimeRemaining = (endTime) => {
     const oneColor = colors[Math.floor(Math.random()*colors.length)]
 
     const start = Math.floor(Math.random());
+    console.log(names.length)
     if(names.length) {
-      console.log(names)
-      ['Mad'].map((name, index)=>{
+      console.log('no entres', names)
+      names.map((name, index)=>{
         if(start === 1){
           return (
           <div className="beer rotate"
@@ -160,7 +161,7 @@ getTimeRemaining = (endTime) => {
             <h2>{counter.days} <span className="display-letters">Days</span>  {counter.hours} <span className="display-letters">h</span> {counter.minutes} <span className="display-letters">min</span> {counter.seconds} <span className="display-letters">sec</span></h2>
           </div>
           <div className="names-list element">
-            {this.randomMovement() || ['Mad'].map((name, index)=>{
+            {this.randomMovement() || names.map((name, index)=>{
               return (
                 <div className="beer rotate"
                 key={index} 
