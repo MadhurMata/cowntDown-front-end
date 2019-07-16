@@ -92,9 +92,7 @@ getTimeRemaining = (endTime) => {
     const oneColor = colors[Math.floor(Math.random()*colors.length)]
 
     const start = Math.floor(Math.random());
-    console.log(names.length)
     if(names.length) {
-      console.log('no entres', names)
       names.map((name, index)=>{
         if(start === 1){
           return (
@@ -143,6 +141,7 @@ getTimeRemaining = (endTime) => {
         <div>
             <h1>Beer Time!!</h1>
             <h3>Join Mad's</h3>
+            <h4>Tap a beer-bottle to find your name</h4>
         </div>
         <form className="form" onSubmit={this.handleFormSubmit}>
                 <div className="input-box">

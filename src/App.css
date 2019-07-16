@@ -34,9 +34,12 @@ h3 {
   font-size: 6vw;
 }
 
+h4 {
+  font-size: 3vw;
+}
 
 p {
-
+  font-size: 3vw;
   visibility: hidden;
 }
 
