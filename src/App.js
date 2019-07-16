@@ -55,6 +55,9 @@ export default class App extends Component {
         return data;
       })
       .catch(error => console.log(error.response));
+      this.setState({
+        name: ''
+      })
   };
 
 getTimeRemaining = (endTime) => {

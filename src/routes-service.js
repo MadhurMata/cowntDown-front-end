@@ -14,7 +14,6 @@ class RoutesService {
   }
 
   create(name) {
-    console.log('routes-service', name)
     return this.user.post('/user/create', { name } )
     .then(({ data }) => data)
   }
